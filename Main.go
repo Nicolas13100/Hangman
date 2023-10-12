@@ -14,6 +14,7 @@ func main() {
 		fmt.Scan(&choice)
 		switch choice {
 		case 1:
+			Hangman.Init()
 			Hangman.Menu()
 		case 0:
 			os.Exit(0)

@@ -8,7 +8,7 @@ import (
 
 var hangman []string
 
-func init() {
+func Init() {
 	// Read hangman ASCII art from file
 	data, err := os.ReadFile("hangman.txt")
 	if err != nil {
@@ -61,7 +61,7 @@ func Pendu(s string) {
 
 		fmt.Println(displayWord)
 
-		fmt.Printf("Lettre donné: %s\n", strings.Join(guessedLetters, ", "))
+		fmt.Printf("Lettre deja donné: %s\n", strings.Join(guessedLetters, ", "))
 
 		if strings.Contains(word, strings.Join(guessedLetters, "")) {
 			fmt.Printf("Bravo, vous avez trouver le mot: %s\n", word)

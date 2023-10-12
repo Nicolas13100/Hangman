@@ -8,16 +8,14 @@ import (
 
 func main() {
 	fmt.Println("Bienvenue sur notre jeu de Pendu")
-	fmt.Println("Que voulez vous faire ? (1.jouer / 2. Partir)")
+	fmt.Println("Que voulez vous faire ? (1.jouer / 0. Partir)")
 	for {
 		var choice int
 		fmt.Scan(&choice)
 		switch choice {
-		case 0:
-			Hangman.GetValueFromFile()
 		case 1:
 			Hangman.Menu()
-		case 2:
+		case 0:
 			os.Exit(0)
 		default:
 			fmt.Println("Choix Invalide")

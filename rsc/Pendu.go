@@ -48,6 +48,7 @@ func Pendu(s string) {
 		if !result {
 			incorrectGuesses++
 		}
+		println(incorrectGuesses)
 
 		PrintHangman(incorrectGuesses)
 

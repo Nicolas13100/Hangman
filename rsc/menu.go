@@ -1,0 +1,5 @@
+package Hangman
+
+func menu() {
+
+}

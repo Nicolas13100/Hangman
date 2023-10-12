@@ -28,14 +28,15 @@ func Pendu(s string) {
 			fmt.Printf("Désolé, '%s' n'est pas dans le mot.\n", user_input)
 		}
 
-		fmt.Printf("Guessed letters: %s\n", strings.Join(guessedLetters, ", "))
+		fmt.Printf("Lettre donné: %s\n", strings.Join(guessedLetters, ", "))
 
 		if strings.Contains(word, strings.Join(guessedLetters, "")) {
-			fmt.Printf("Congratulations! You've guessed the word: %s\n", word)
+			fmt.Printf("Bravo, vous avez trouvé le mot: %s\n", word)
 			break
 		}
 	}
 }
+
 func checkLetter(word string, guessedLetters []string, letter string) (bool, []string) {
 	for _, guessedLetter := range guessedLetters {
 		if guessedLetter == letter {

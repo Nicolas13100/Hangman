@@ -6,7 +6,7 @@ import (
 )
 
 func ChoixMots() string {
-	return
+	return ""
 }
 
 func GetValueFromFile() []string {

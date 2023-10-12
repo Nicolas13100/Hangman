@@ -3,7 +3,7 @@ package Hangman
 import "fmt"
 
 func Menu() {
-	fmt.Println("Souhaitez vous faire 1.Pendu classic ?")
+	fmt.Println("Que souhaitez vous faire ?\n 1.Pendu classic ")
 	for {
 		var choice int
 		fmt.Scan(&choice)
@@ -12,7 +12,7 @@ func Menu() {
 			s := ChoixMot()
 			Pendu(s)
 		default:
-			fmt.Println("Choix invalide, Seul 1 ou 2 sont accepté")
+			fmt.Println("Choix invalide, Seul 1 est accepté")
 			continue
 		}
 	}

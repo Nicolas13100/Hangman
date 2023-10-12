@@ -10,7 +10,7 @@ var hangman []string
 
 func Init() {
 	// Read hangman ASCII art from file
-	data, err := os.ReadFile("hangman.txt")
+	data, err := os.ReadFile("rsc/hangman.txt")
 	if err != nil {
 		fmt.Println("Error reading hangman file:", err)
 		return
@@ -20,22 +20,27 @@ func Init() {
 		fmt.Println("Error: hangman file is empty")
 		return
 	}
-	println("ouioui")
 	hangman = strings.Split(string(data), "\n")
-
-	// Print out the content of hangman slice
-	for i, line := range hangman {
-		fmt.Printf("Line %d: %s\n", i, line)
-	}
 }
+
 func PrintHangman(incorrectGuesses int) {
-	if incorrectGuesses < len(hangman) {
-		fmt.Println(hangman[incorrectGuesses])
+	if incorrectGuesses == 0 {
+		fmt.Println(hangman[0])
+	} else if incorrectGuesses <= len(hangman) {
+		start := (incorrectGuesses - 1) * 7
+		end := incorrectGuesses * 7
+
+		if end > len(hangman) {
+			end = len(hangman)
+		}
+
+		for i := start; i < end; i++ {
+			fmt.Println(hangman[i])
+		}
 	} else {
 		fmt.Println(hangman[len(hangman)-1])
 	}
 }
-
 func Pendu(s string) {
 	fmt.Println("C'est parti, a vous de jouer")
 	word := s
@@ -58,7 +63,6 @@ func Pendu(s string) {
 		if !result {
 			incorrectGuesses++
 		}
-		println(incorrectGuesses)
 
 		PrintHangman(incorrectGuesses)
 
@@ -80,7 +84,7 @@ func Pendu(s string) {
 			break
 		}
 
-		if incorrectGuesses == 6 {
+		if incorrectGuesses == 9 {
 			fmt.Printf("Dommage, plus de tentative. Le mot été: %s\n", word)
 			break
 		}

@@ -2,11 +2,19 @@ package Hangman
 
 import (
 	"fmt"
+	"math/rand"
 	"os"
 )
 
-func ChoixMots() string {
-	return ""
+func ChoixMot() string {
+	words := GetValueFromFile()
+	if len(words) == 0 {
+		fmt.Println("No words found.")
+		return ""
+	}
+
+	randomWord := GetRandomWord(words)
+	return randomWord
 }
 
 func GetValueFromFile() []string {
@@ -31,6 +39,14 @@ func GetValueFromFile() []string {
 	if word != "" {
 		tab = append(tab, word)
 	}
-	fmt.Println(tab)
 	return tab
+}
+
+func GetRandomWord(words []string) string {
+	if len(words) == 0 {
+		return ""
+	}
+
+	randomIndex := rand.Intn(len(words))
+	return words[randomIndex]
 }

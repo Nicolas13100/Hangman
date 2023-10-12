@@ -5,8 +5,8 @@ import (
 	"os"
 )
 
-func ChoixMots() {
-
+func ChoixMots() string {
+	return ""
 }
 
 func GetValueFromFile() []string {

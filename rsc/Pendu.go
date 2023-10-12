@@ -41,6 +41,7 @@ func PrintHangman(incorrectGuesses int) {
 		fmt.Println(hangman[len(hangman)-1])
 	}
 }
+
 func Pendu(s string) {
 	fmt.Println("C'est parti, a vous de jouer")
 	word := s
@@ -50,18 +51,33 @@ func Pendu(s string) {
 
 	for {
 		var user_input string
-		fmt.Print("Entrer un lettre: ")
+		if len(GuessedLetters) > 0 {
+			fmt.Printf("Lettre deja donné: %s\n", strings.Join(GuessedLetters, ", "))
+		}
+		fmt.Print("Entrer un lettre ou un mot: ")
 		_, err := fmt.Scan(&user_input)
 
-		if err != nil || len(user_input) != 1 || !strings.ContainsAny(user_input, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") {
-			fmt.Println("Entrer une lettre valide SVP.")
+		if err != nil {
+			fmt.Println("Erreur de saisie:", err)
 			continue
 		}
 
-		result, GuessedLetters = checkLetter(word, GuessedLetters, strings.ToUpper(user_input))
+		if len(user_input) == 1 && strings.ContainsAny(user_input, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") {
+			result, GuessedLetters = checkLetter(word, GuessedLetters, strings.ToUpper(user_input))
 
-		if !result {
-			incorrectGuesses++
+			if !result {
+				incorrectGuesses++
+			}
+		} else if len(user_input) == len(word) && strings.ContainsAny(user_input, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") {
+			if user_input == word {
+				fmt.Printf("Bravo, vous avez trouvé le mot: %s\n", word)
+				break
+			} else {
+				incorrectGuesses += 2
+			}
+		} else {
+			fmt.Println("Entrer une lettre ou un mot valide SVP.")
+			continue
 		}
 
 		PrintHangman(incorrectGuesses)
@@ -77,15 +93,13 @@ func Pendu(s string) {
 
 		fmt.Println(displayWord)
 
-		fmt.Printf("Lettre deja donné: %s\n", strings.Join(GuessedLetters, ", "))
-
-		if strings.Join(GuessedLetters, "") == word {
-			fmt.Printf("Bravo, vous avez trouver le mot: %s\n", word)
+		if strings.Join(strings.Fields(displayWord), "") == word {
+			fmt.Printf("Bravo, vous avez trouvé le mot: %s\n", word)
 			break
 		}
 
 		if incorrectGuesses == 9 {
-			fmt.Printf("Dommage, plus de tentative. Le mot été: %s\n", word)
+			fmt.Printf("Dommage, plus de tentative. Le mot était: %s\n", word)
 			break
 		}
 	}

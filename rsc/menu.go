@@ -9,8 +9,8 @@ func Menu() {
 		fmt.Scan(&choice)
 		switch choice {
 		case 1:
-
-			Pendu("exemple")
+			s := ChoixMot()
+			Pendu(s)
 		default:
 			fmt.Println("Choix invalide, Seul 1 est accepté")
 			continue

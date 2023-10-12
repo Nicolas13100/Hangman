@@ -65,7 +65,7 @@ func Pendu(s string) {
 
 		fmt.Printf("Lettre deja donné: %s\n", strings.Join(GuessedLetters, ", "))
 
-		if strings.Contains(word, strings.Join(GuessedLetters, "")) {
+		if strings.Join(GuessedLetters, "") == word {
 			fmt.Printf("Bravo, vous avez trouver le mot: %s\n", word)
 			break
 		}

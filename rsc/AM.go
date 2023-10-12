@@ -6,40 +6,113 @@ import (
 	"os"
 )
 
-func ChoixMot() string {
-	words := GetValueFromFile()
+func ChoixMot(choix int) string {
+	words := GetValueFromFile(choix)
 	if len(words) == 0 {
 		fmt.Println("No words found.")
 		return ""
 	}
-
 	randomWord := GetRandomWord(words)
 	return randomWord
 }
 
-func GetValueFromFile() []string {
-	content, err := os.ReadFile("Dictionnaire.txt")
-	if err != nil {
-		fmt.Println("Erreur de lecture")
-		return []string{}
-	}
-
-	var word string
-	var tab []string
-
-	for _, c := range string(content) {
-		if c >= 'A' && c <= 'Z' {
-			word += string(c)
-		} else if word != "" {
-			tab = append(tab, word)
-			word = ""
+func GetValueFromFile(choix int) []string {
+	switch choix {
+	case 1:
+		content, err := os.ReadFile("Dictionnaire.txt")
+		if err != nil {
+			fmt.Println("Erreur de lecture")
+			return []string{}
 		}
-	}
 
-	if word != "" {
-		tab = append(tab, word)
+		var word string
+		var tab []string
+
+		for _, c := range string(content) {
+			if c >= 'A' && c <= 'Z' {
+				word += string(c)
+			} else if word != "" {
+				tab = append(tab, word)
+				word = ""
+			}
+		}
+
+		if word != "" {
+			tab = append(tab, word)
+		}
+		return tab
+	case 2:
+		content, err := os.ReadFile("Facile.txt")
+		if err != nil {
+			fmt.Println("Erreur de lecture")
+			return []string{}
+		}
+
+		var word string
+		var tab []string
+
+		for _, c := range string(content) {
+			if c >= 'A' && c <= 'Z' {
+				word += string(c)
+			} else if word != "" {
+				tab = append(tab, word)
+				word = ""
+			}
+		}
+
+		if word != "" {
+			tab = append(tab, word)
+		}
+		return tab
+	case 3:
+		content, err := os.ReadFile("Moyen.txt")
+		if err != nil {
+			fmt.Println("Erreur de lecture")
+			return []string{}
+		}
+
+		var word string
+		var tab []string
+
+		for _, c := range string(content) {
+			if c >= 'A' && c <= 'Z' {
+				word += string(c)
+			} else if word != "" {
+				tab = append(tab, word)
+				word = ""
+			}
+		}
+
+		if word != "" {
+			tab = append(tab, word)
+		}
+		return tab
+	case 4:
+		content, err := os.ReadFile("Difficile.txt")
+		if err != nil {
+			fmt.Println("Erreur de lecture")
+			return []string{}
+		}
+
+		var word string
+		var tab []string
+
+		for _, c := range string(content) {
+			if c >= 'A' && c <= 'Z' {
+				word += string(c)
+			} else if word != "" {
+				tab = append(tab, word)
+				word = ""
+			}
+		}
+
+		if word != "" {
+			tab = append(tab, word)
+		}
+		return tab
+
 	}
-	return tab
+	return nil
 }
 
 func GetRandomWord(words []string) string {

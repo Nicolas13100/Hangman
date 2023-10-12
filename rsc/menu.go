@@ -12,7 +12,7 @@ func Menu() {
 			s := ChoixMots()
 			Pendu(s)
 		default:
-			fmt.Println("Choix invalide, Seul 1 ou 2 sont accepté")
+			fmt.Println("Choix invalide, Seul 1 est accepté")
 			continue
 		}
 	}

@@ -18,7 +18,7 @@ func Init() {
 	hangman = strings.Split(string(data), "\n")
 }
 
-func printHangman(incorrectGuesses int) {
+func PrintHangman(incorrectGuesses int) {
 	if incorrectGuesses < len(hangman) {
 		fmt.Println(hangman[incorrectGuesses])
 	} else {
@@ -29,8 +29,9 @@ func printHangman(incorrectGuesses int) {
 func Pendu(s string) {
 	fmt.Println("C'est parti, a vous de jouer")
 	word := s
-	guessedLetters := []string{}
+	GuessedLetters := []string{}
 	incorrectGuesses := 0
+	result := false
 
 	for {
 		var user_input string
@@ -42,17 +43,17 @@ func Pendu(s string) {
 			continue
 		}
 
-		result, guessedLetters := checkLetter(word, guessedLetters, strings.ToLower(user_input))
+		result, GuessedLetters = checkLetter(word, GuessedLetters, strings.ToUpper(user_input))
 
 		if !result {
 			incorrectGuesses++
 		}
 
-		printHangman(incorrectGuesses)
+		PrintHangman(incorrectGuesses)
 
 		displayWord := ""
 		for _, letter := range word {
-			if contains(guessedLetters, string(letter)) {
+			if contains(GuessedLetters, string(letter)) {
 				displayWord += string(letter) + " "
 			} else {
 				displayWord += "_ "
@@ -61,9 +62,9 @@ func Pendu(s string) {
 
 		fmt.Println(displayWord)
 
-		fmt.Printf("Lettre deja donné: %s\n", strings.Join(guessedLetters, ", "))
+		fmt.Printf("Lettre deja donné: %s\n", strings.Join(GuessedLetters, ", "))
 
-		if strings.Contains(word, strings.Join(guessedLetters, "")) {
+		if strings.Contains(word, strings.Join(GuessedLetters, "")) {
 			fmt.Printf("Bravo, vous avez trouver le mot: %s\n", word)
 			break
 		}
@@ -84,19 +85,19 @@ func contains(slice []string, item string) bool {
 	return false
 }
 
-func checkLetter(word string, guessedLetters []string, letter string) (bool, []string) {
-	for _, guessedLetter := range guessedLetters {
+func checkLetter(word string, GuessedLetters []string, letter string) (bool, []string) {
+	for _, guessedLetter := range GuessedLetters {
 		if guessedLetter == letter {
 			fmt.Printf("Vous avez déja essayer la lettre '%s'.\n", letter)
-			return false, guessedLetters
+			return false, GuessedLetters
 		}
 	}
 
 	if strings.Contains(word, letter) {
-		guessedLetters = append(guessedLetters, letter)
-		return true, guessedLetters
+		GuessedLetters = append(GuessedLetters, letter)
+		return true, GuessedLetters
 	} else {
-		guessedLetters = append(guessedLetters, letter)
-		return false, guessedLetters
+		GuessedLetters = append(GuessedLetters, letter)
+		return false, GuessedLetters
 	}
 }

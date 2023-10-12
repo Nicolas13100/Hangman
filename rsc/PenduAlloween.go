@@ -1,5 +1,0 @@
-package Hangman
-
-func PenduAlloween() {
-
-}

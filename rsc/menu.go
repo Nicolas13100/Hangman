@@ -6,6 +6,7 @@ func Menu() {
 	fmt.Println("Souhaitez vous faire 1.Pendu classic ?")
 	for {
 		var choice int
+		fmt.Scan(&choice)
 		switch choice {
 		case 1:
 			Pendu(s)

@@ -12,12 +12,22 @@ func Init() {
 	// Read hangman ASCII art from file
 	data, err := os.ReadFile("hangman.txt")
 	if err != nil {
-		fmt.Println("Error lecture hangman file:", err)
+		fmt.Println("Error reading hangman file:", err)
 		return
 	}
-	hangman = strings.Split(string(data), "\n")
-}
 
+	if len(data) == 0 {
+		fmt.Println("Error: hangman file is empty")
+		return
+	}
+	println("ouioui")
+	hangman = strings.Split(string(data), "\n")
+
+	// Print out the content of hangman slice
+	for i, line := range hangman {
+		fmt.Printf("Line %d: %s\n", i, line)
+	}
+}
 func PrintHangman(incorrectGuesses int) {
 	if incorrectGuesses < len(hangman) {
 		fmt.Println(hangman[incorrectGuesses])

@@ -1,5 +1,5 @@
 package Hangman
 
-func menu() {
+func Menu() {
 
 }

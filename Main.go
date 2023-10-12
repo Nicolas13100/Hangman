@@ -1,6 +1,7 @@
 package main
 
 import (
+	Hangman "Hangman/rsc"
 	"fmt"
 	"os"
 )
@@ -13,6 +14,7 @@ func main() {
 		fmt.Scan(&choice)
 		switch choice {
 		case 1:
+			Hangman.Menu()
 		case 2:
 			os.Exit(0)
 		default:

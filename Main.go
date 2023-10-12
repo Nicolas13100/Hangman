@@ -13,6 +13,8 @@ func main() {
 		var choice int
 		fmt.Scan(&choice)
 		switch choice {
+		case 0:
+			Hangman.GetValueFromFile()
 		case 1:
 			Hangman.Menu()
 		case 2:

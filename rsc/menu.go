@@ -32,7 +32,7 @@ func Menu() {
 			Pendu(s)
 
 		default:
-			fmt.Println("Choix invalide, Seul 1 est accepté")
+			fmt.Println("Choix invalide, Seul les nombres donné sont accepté")
 			continue
 		}
 	}

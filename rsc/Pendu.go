@@ -2,6 +2,7 @@ package Hangman
 
 import (
 	"fmt"
+	"math/rand"
 	"os"
 	"strings"
 )
@@ -49,12 +50,28 @@ func Pendu(s string) {
 	incorrectGuesses := 0
 	result := false
 
+	for i := 0; i < 2; i++ {
+		randIndex := rand.Intn(len(word))
+		letter := string(word[randIndex])
+		GuessedLetters = append(GuessedLetters, letter)
+	}
+	displayWord := ""
+	for _, letter := range word {
+		if contains(GuessedLetters, string(letter)) {
+			displayWord += string(letter) + " "
+		} else {
+			displayWord += "_ "
+		}
+	}
+
+	fmt.Println(displayWord)
+
 	for {
 		var user_input string
 		if len(GuessedLetters) > 0 {
 			fmt.Printf("Lettre deja donné: %s\n", strings.Join(GuessedLetters, ", "))
 		}
-		fmt.Print("Entrer un lettre ou un mot: ")
+		fmt.Print("Entrer une lettre ou un mot: ")
 		_, err := fmt.Scan(&user_input)
 
 		if err != nil {
@@ -118,8 +135,9 @@ func contains(slice []string, item string) bool {
 func checkLetter(word string, GuessedLetters []string, letter string) (bool, []string) {
 	for _, guessedLetter := range GuessedLetters {
 		if guessedLetter == letter {
+			ClearTerminal()
 			fmt.Printf("Vous avez déja essayer la lettre '%s'.\n", letter)
-			return false, GuessedLetters
+			return true, GuessedLetters
 		}
 	}
 

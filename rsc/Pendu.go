@@ -69,7 +69,8 @@ func Pendu(s string) {
 				incorrectGuesses++
 			}
 		} else if len(user_input) == len(word) && strings.ContainsAny(user_input, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") {
-			if strings.ToUpper(user_input) == word {
+			USER := strings.ToUpper(user_input)
+			if USER == word {
 				fmt.Printf("Bravo, vous avez trouvé le mot: %s\n", word)
 				break
 			} else {

@@ -19,7 +19,7 @@ func ChoixMot(choix int) string {
 func GetValueFromFile(choix int) []string {
 	switch choix {
 	case 1:
-		content, err := os.ReadFile("Dictionnaire.txt")
+		content, err := os.ReadFile("Librairie/Dictionnaire.txt")
 		if err != nil {
 			fmt.Println("Erreur de lecture")
 			return []string{}
@@ -42,7 +42,7 @@ func GetValueFromFile(choix int) []string {
 		}
 		return tab
 	case 2:
-		content, err := os.ReadFile("Facile.txt")
+		content, err := os.ReadFile("Librairie/Facile.txt")
 		if err != nil {
 			fmt.Println("Erreur de lecture")
 			return []string{}
@@ -65,7 +65,7 @@ func GetValueFromFile(choix int) []string {
 		}
 		return tab
 	case 3:
-		content, err := os.ReadFile("Moyen.txt")
+		content, err := os.ReadFile("Librairie/Moyen.txt")
 		if err != nil {
 			fmt.Println("Erreur de lecture")
 			return []string{}
@@ -88,7 +88,7 @@ func GetValueFromFile(choix int) []string {
 		}
 		return tab
 	case 4:
-		content, err := os.ReadFile("Difficile.txt")
+		content, err := os.ReadFile("Librairie/Difficile.txt")
 		if err != nil {
 			fmt.Println("Erreur de lecture")
 			return []string{}
@@ -111,7 +111,7 @@ func GetValueFromFile(choix int) []string {
 		}
 		return tab
 	case 5:
-		content, err := os.ReadFile("Halloween.txt")
+		content, err := os.ReadFile("Librairie/Halloween.txt")
 		if err != nil {
 			fmt.Println("Erreur de lecture")
 			return []string{}

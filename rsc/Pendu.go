@@ -11,7 +11,7 @@ var hangman []string
 
 func Init() {
 	// Read hangman ASCII art from file
-	data, err := os.ReadFile("rsc/hangman.txt")
+	data, err := os.ReadFile("AsciiArt/hangman.txt")
 	if err != nil {
 		fmt.Println("Error reading hangman file:", err)
 		return

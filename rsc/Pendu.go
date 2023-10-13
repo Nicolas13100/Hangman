@@ -49,8 +49,8 @@ func Pendu(s string) {
 	GuessedLetters := []string{}
 	incorrectGuesses := 0
 	result := false
-
-	for i := 0; i < 2; i++ {
+	numIterations := int(float64(len(word)) * 0.2)
+	for i := 0; i < numIterations; i++ {
 		randIndex := rand.Intn(len(word))
 		letter := string(word[randIndex])
 		GuessedLetters = append(GuessedLetters, letter)

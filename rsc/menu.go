@@ -8,7 +8,7 @@ import (
 func Menu() {
 	ClearTerminal()
 	for {
-		fmt.Println("Que souhaitez vous faire ?\n1.Pendu avec tous les mot du dictionaire\n2.Facile\n3.Moyen\n4.Difficile\n0.Partir\n ")
+		fmt.Println("Que souhaitez vous faire ?\n1.Pendu avec tous les mot du dictionaire\n2.Facile\n3.Moyen\n4.Difficile\n5.Halloween\n0.Partir\n ")
 
 		var choice int
 		fmt.Scan(&choice)
@@ -25,6 +25,9 @@ func Menu() {
 			s := ChoixMot(choice)
 			Pendu(s)
 		case 4:
+			s := ChoixMot(choice)
+			Pendu(s)
+		case 5:
 			s := ChoixMot(choice)
 			Pendu(s)
 

@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+
 	fmt.Println("Bienvenue sur notre jeu de Pendu")
 	fmt.Println("Que voulez vous faire ? (1.jouer / 0. Partir)")
 	for {

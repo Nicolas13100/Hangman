@@ -1,0 +1,56 @@
+body {
+    background-color: #3498db;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+div {
+    background-color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    height: 80%; /* Adjusted to be 80% of the viewport height */
+    max-height: 600px; /* Added a maximum height for larger screens */
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden; /* Ensure contents stay within the circular boundaries */
+}
+
+img {
+    max-width: 50%; /* Make the image responsive within its container */
+    max-height: 100%; /* Make sure the image doesn't exceed the container's height */
+    object-fit: contain; /* Maintain the aspect ratio and fit the image within the container */
+}
+
+h1 {
+    margin: 5px 0;
+}
+
+h2 {
+    margin: 50px 0 10px; /* Added more top margin and reduced bottom margin */
+    color: blue;
+    padding-bottom: 20px; /* Added padding at the bottom */
+    font-size: 35px;
+}
+p {
+    margin: 5px 0; /* Adjusted for closer spacing */
+}
+
+@media (max-width: 768px) {
+    div {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    div {
+        width: 95%;
+    }
+}

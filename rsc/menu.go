@@ -5,7 +5,7 @@ import (
 	"os"
 )
 
-func Menu() {
+func Menu() { // Menu princpal
 	ClearTerminal()
 	for {
 		fmt.Println("Que souhaitez vous faire ?\n1.Pendu avec tous les mot du dictionaire\n2.Facile\n3.Moyen\n4.Difficile\n5.Halloween\n0.Partir\n ")

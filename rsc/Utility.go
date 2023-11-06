@@ -6,7 +6,7 @@ import (
 	"runtime"
 )
 
-func ClearTerminal() {
+func ClearTerminal() { // Néttoie la console
 	var cmd *exec.Cmd
 
 	if runtime.GOOS == "windows" {

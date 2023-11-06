@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func ChoixMot(choix int) string {
+func ChoixMot(choix int) string { // Prend un mot dans le dictionnaire choisi
 	words := GetValueFromFile(choix)
 	if len(words) == 0 {
 		fmt.Println("No words found.")
@@ -16,7 +16,7 @@ func ChoixMot(choix int) string {
 	return randomWord
 }
 
-func GetValueFromFile(choix int) []string {
+func GetValueFromFile(choix int) []string { // Le choix de dico est ici
 	switch choix {
 	case 1:
 		content, err := os.ReadFile("Librairie/Dictionnaire.txt")
@@ -137,7 +137,7 @@ func GetValueFromFile(choix int) []string {
 	return nil
 }
 
-func GetRandomWord(words []string) string {
+func GetRandomWord(words []string) string { // give random letter in the word
 	if len(words) == 0 {
 		return ""
 	}
